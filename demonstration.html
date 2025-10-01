@@ -1,10 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CSS Coding Challenge #1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1: The Whispering Path</title>
+    <link rel="stylesheet" href="spooktacular1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="story.html">Story Page</a>
+
+    <header>
+        <div class="logo">
+            <h1>S P O O K B O O K</h1>
+        </div>
+        <nav>
+            <a href="Index_Template.html">Intro</a>
+            <a href="story.html">The Story Begins</a> 
+        </nav>
+    </header>
+
+    <main class="story-container">
+        
+        <section id="page1" class="page intro-page">
+            
+            <section class="hero-section">
+                <h2 class="animated-headline">Beware the Shadows...</h2> 
+                <p>The Dark Knight faces a dark night! Beware what lurks in the shadows of this spooky, grim graveyard!</p>
+                </section>
+            
+            <div class="interactive-area">
+                <div class="spooky-card">
+                    <h3>The Gatekeeper's Warning</h3>
+                    <p class="ghost-reveal">Look closer, the path is not what it seems...</p>
+                    <div class="ghost">👻</div> </div>
+            </div>
+            
+            <a href="story.html" class="page-flipper">Turn the First Page...</a>
+
+        </section>
+
+        <section id="page2" class="page main-story-page">
+            <h2>Chapter 2: The Haunted Library</h2>
+            <p>The main narrative starts here. Use a multi-panel layout with Grid/Flexbox.</p>
+            <a href="#page1" class="page-flipper">Go Back</a>
+        </section>
+
+    </main>
+    <audio id="background-audio" autoplay loop>
+        <source src="0579. Halloween Time - AShamaluevMusic.mp3" type="audio/mpeg">
+    </audio>
+    
+    <footer>
+        <p>&copy; 2025 Spooktacular Code Challenge | A CSS-Only Nightmare.</p>
+    </footer>
 
 </body>
 </html>

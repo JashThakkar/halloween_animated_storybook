@@ -1,0 +1,232 @@
+:root {
+    
+    --pumpkin: #FF7518;
+    --witch-purple: #4B0082;
+    --monster-green: #228B22; 
+    --black: #000000;
+    --ghost-white: #FFFFFF;
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 1rem;
+    --space-4: 2rem;
+
+
+    --font-display: 'Creepster', cursive;
+    --font-body: 'Roboto', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth; 
+    background-color: var(--black);
+    color: var(--ghost-white);
+    font-family: var(--font-body);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--pumpkin);
+}
+
+a {
+    text-decoration: none;
+    color: var(--ghost-white);
+    transition: color 0.2s; 
+}
+
+a:hover, a:focus {
+    color: var(--pumpkin); 
+}
+
+
+header {
+    position: sticky;
+    top: 0;
+    background: var(--black);
+    color: var(--ghost-white);
+    padding: var(--space-2) var(--space-4);
+    z-index: 1000;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--witch-purple);
+}
+
+.logo h1 {
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+}
+
+nav a {
+    display: inline-block;
+    padding: var(--space-2) var(--space-3);
+    transition: transform 0.2s, color 0.2s;
+    text-transform: uppercase;
+}
+
+nav a:focus, nav a:hover {
+    color: var(--pumpkin);
+    transform: translateY(-2px); 
+    outline: 2px dashed var(--pumpkin); 
+    outline-offset: 2px;
+}
+
+.story-container {
+    min-height: 100vh;
+    padding: var(--space-4);
+    padding-top: 0; 
+}
+
+.page {
+    display: none;
+    min-height: 80vh;
+    padding: var(--space-4) 0;
+    display: grid; 
+    grid-template-rows: auto 1fr auto;
+    gap: var(--space-4);
+}
+
+.page:target {
+    display: grid; 
+}
+
+#page1:not(:target) {
+    display: grid;
+}
+
+.hero-section {
+    text-align: center;
+    padding: var(--space-4);
+    border: 3px solid var(--pumpkin);
+    background: rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden; 
+}
+
+.animated-headline {
+    font-size: 3rem;
+    animation: pulseGlow 3s infinite alternate; 
+}
+
+
+@keyframes pulseGlow {
+    from { color: var(--pumpkin); text-shadow: 0 0 5px var(--pumpkin); }
+    to { color: var(--witch-purple); text-shadow: 0 0 10px var(--witch-purple); }
+}
+
+
+.hero-section::before, .hero-section::after {
+    content: "🕸️"; 
+    position: absolute;
+    font-size: 4rem;
+    opacity: 0.5;
+    animation: float 5s infinite ease-in-out alternate;
+}
+
+.hero-section::before {
+    top: -1rem;
+    left: -1rem;
+}
+
+.hero-section::after {
+    bottom: -1rem;
+    right: -1rem;
+    transform: rotate(180deg);
+    animation-delay: 1s;
+}
+
+.spooky-card {
+    border: 1px solid var(--witch-purple);
+    padding: var(--space-3);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.spooky-card:hover {
+    background-color: rgba(75, 0, 130, 0.2); 
+}
+
+.ghost {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    font-size: 3rem;
+    line-height: 1;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+}
+
+.spooky-card:where(:hover, :focus-within) .ghost {
+    opacity: 1; 
+    transform: translateX(-50%) translateY(0); 
+}
+
+.page-flipper {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    padding: var(--space-2) var(--space-4);
+    background: var(--witch-purple);
+    border: 2px solid var(--pumpkin);
+    border-radius: var(--space-1);
+    text-transform: uppercase;
+    text-align: center;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.page-flipper:hover {
+    background: var(--pumpkin);
+    transform: scale(1.05);
+}
+
+footer {
+    padding: var(--space-2);
+    text-align: center;
+    border-top: 1px solid var(--witch-purple);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { 
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition: none !important; 
+    }
+}
+
+@media (min-width: 768px) {
+    header {
+        padding: var(--space-3) var(--space-4);
+    }
+
+    .logo h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .animated-headline {
+        font-size: 5rem;
+    }
+}
+
+body {
+    background-image: url("spookybackground.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
