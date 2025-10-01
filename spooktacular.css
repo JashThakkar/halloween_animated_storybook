@@ -83,3 +83,30 @@ nav a:hover {
 .werewolf:hover {
   animation: morph 1.6s ease-in-out infinite;
 }
+
+.pan1{
+    margin: 0;
+    padding: 0;
+    border: gray solid 3px;
+    position: relative;
+    overflow: hidden;
+}
+
+.top{
+    margin: 0;
+    padding: 0;
+    border: gray solid 3px;
+    width: 48.8%;
+    height: 450px;
+}
+.bot1{
+    margin: 0;
+    padding: 0;
+    border: gray solid 3px;
+    width: 30%;
+}
+.bot2{
+    margin: 0;
+    padding: 0;
+    width: 68%;
+}
